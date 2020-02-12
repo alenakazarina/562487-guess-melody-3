@@ -43,8 +43,7 @@ class GenreQuestionScreen extends PureComponent {
     }));
   }
 
-  _handleUserAnswerChange(evt, index) {
-    const userAnswer = evt.target.checked;
+  _handleUserAnswerChange(userAnswer, index) {
     this.setState((state) => ({
       userAnswers: [...state.userAnswers.slice(0, index), userAnswer, ...state.userAnswers.slice(index + 1)]
     }));
@@ -99,7 +98,7 @@ class GenreQuestionScreen extends PureComponent {
                     value={`answer-${i}`}
                     id={`answer-${i}`}
                     checked={userAnswers[i]}
-                    onChange={(evt) => this._handleUserAnswerChange(evt, i)}
+                    onChange={(evt) => this._handleUserAnswerChange(evt.target.checked, i)}
                   />
                   <label className="game__check" htmlFor={`answer-${i}`}>Отметить</label>
                 </div>
