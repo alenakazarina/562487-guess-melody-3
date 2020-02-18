@@ -1,7 +1,6 @@
 import React, {PureComponent} from 'react';
 import {func} from 'prop-types';
 import {genreQuestionPropTypes} from '../../types';
-import Header from '../header/header';
 import {PAUSE_CLASS} from '../../const';
 
 class GenreQuestionScreen extends PureComponent {
@@ -71,46 +70,43 @@ class GenreQuestionScreen extends PureComponent {
     const {userAnswers} = this.state;
 
     return (
-      <section className="game game--genre">
-        <Header />
-        <section className="game__screen">
-          <h2 className="game__title">Выберите {question.genre} треки</h2>
-          <form
-            className="game__tracks"
-            onSubmit={(evt) => {
-              evt.preventDefault();
-              onAnswer(question, userAnswers);
-            }}
-          >
-            {question.answers.map((answer, i) => (
-              <div className="track" key={answer.genre}>
-                <button
-                  className="track__button track__button--play"
-                  type="button"
-                  onClick={(evt) => this._handlePlayButtonClick(evt, i)}
-                ></button>
-                <div className="track__status">
-                  <audio src={answer.src}></audio>
-                </div>
-                <div className="game__answer">
-                  <input
-                    className="game__input visually-hidden"
-                    type="checkbox" name="answer"
-                    value={`answer-${i}`}
-                    id={`answer-${i}`}
-                    checked={userAnswers[i]}
-                    onChange={(evt) => this._handleUserAnswerChange(evt.target.checked, i)}
-                  />
-                  <label className="game__check" htmlFor={`answer-${i}`}>Отметить</label>
-                </div>
+      <section className="game__screen">
+        <h2 className="game__title">Выберите {question.genre} треки</h2>
+        <form
+          className="game__tracks"
+          onSubmit={(evt) => {
+            evt.preventDefault();
+            onAnswer(question, userAnswers);
+          }}
+        >
+          {question.answers.map((answer, i) => (
+            <div className="track" key={answer.genre}>
+              <button
+                className="track__button track__button--play"
+                type="button"
+                onClick={(evt) => this._handlePlayButtonClick(evt, i)}
+              ></button>
+              <div className="track__status">
+                <audio src={answer.src}></audio>
               </div>
-            ))}
-            <button
-              className="game__submit button"
-              type="submit"
-            >Ответить</button>
-          </form>
-        </section>
+              <div className="game__answer">
+                <input
+                  className="game__input visually-hidden"
+                  type="checkbox" name="answer"
+                  value={`answer-${i}`}
+                  id={`answer-${i}`}
+                  checked={userAnswers[i]}
+                  onChange={(evt) => this._handleUserAnswerChange(evt.target.checked, i)}
+                />
+                <label className="game__check" htmlFor={`answer-${i}`}>Отметить</label>
+              </div>
+            </div>
+          ))}
+          <button
+            className="game__submit button"
+            type="submit"
+          >Ответить</button>
+        </form>
       </section>
     );
   }

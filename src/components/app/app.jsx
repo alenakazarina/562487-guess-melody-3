@@ -4,6 +4,7 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import WelcomeScreen from '../welcome-screen/welcome-screen';
 import ArtistQuestionScreen from '../artist-question-screen/artist-question-screen';
 import GenreQuestionScreen from '../genre-question-screen/genre-question-screen';
+import GameScreen from '../game-screen/game-screen';
 import {QuestionType} from '../../mocks/questions';
 
 class App extends PureComponent {
@@ -46,25 +47,29 @@ class App extends PureComponent {
     switch (question.type) {
       case QuestionType.GENRE:
         return (
-          <GenreQuestionScreen
-            question={question}
-            onAnswer={() => {
-              this.setState((state) => ({
-                step: state.step + 1,
-              }));
-            }}
-          />
+          <GameScreen type={QuestionType.GENRE}>
+            <GenreQuestionScreen
+              question={question}
+              onAnswer={() => {
+                this.setState((state) => ({
+                  step: state.step + 1,
+                }));
+              }}
+            />
+          </GameScreen>
         );
       case QuestionType.ARTIST:
         return (
-          <ArtistQuestionScreen
-            question={question}
-            onAnswer={() => {
-              this.setState((state) => ({
-                step: state.step + 1
-              }));
-            }}
-          />
+          <GameScreen type={QuestionType.ARTIST}>
+            <ArtistQuestionScreen
+              question={question}
+              onAnswer={() => {
+                this.setState((state) => ({
+                  step: state.step + 1
+                }));
+              }}
+            />
+          </GameScreen>
         );
       default:
         return null;
@@ -80,24 +85,28 @@ class App extends PureComponent {
             {this._renderGameScreen()}
           </Route>
           <Route exact path="/dev-genre">
-            <GenreQuestionScreen
-              question={questions[0]}
-              onAnswer={() => {
-                this.setState(() => ({
-                  step: 1
-                }));
-              }}
-            />
+            <GameScreen type={QuestionType.GENRE}>
+              <GenreQuestionScreen
+                question={questions[0]}
+                onAnswer={() => {
+                  this.setState(() => ({
+                    step: 1
+                  }));
+                }}
+              />
+            </GameScreen>
           </Route>
           <Route exact path="/dev-artist">
-            <ArtistQuestionScreen
-              question={questions[1]}
-              onAnswer={() => {
-                this.setState(() => ({
-                  step: 2
-                }));
-              }}
-            />
+            <GameScreen type={QuestionType.ARTIST}>
+              <ArtistQuestionScreen
+                question={questions[1]}
+                onAnswer={() => {
+                  this.setState(() => ({
+                    step: 2
+                  }));
+                }}
+              />
+            </GameScreen>
           </Route>
         </Switch>
       </BrowserRouter>
