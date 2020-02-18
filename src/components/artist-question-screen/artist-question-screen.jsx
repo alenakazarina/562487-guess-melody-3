@@ -1,7 +1,8 @@
 import React, {PureComponent} from 'react';
-import PropTypes from 'prop-types';
+import {func} from 'prop-types';
+import {artistQuestionPropTypes} from '../../types';
 import Header from '../header/header';
-import {PAUSE_CLASS, QuestionType} from '../../const';
+import {PAUSE_CLASS} from '../../const';
 
 class ArtistQuestionScreen extends PureComponent {
   constructor(props) {
@@ -79,18 +80,8 @@ class ArtistQuestionScreen extends PureComponent {
 }
 
 ArtistQuestionScreen.propTypes = {
-  question: PropTypes.shape({
-    type: PropTypes.oneOf(Object.values(QuestionType)),
-    song: PropTypes.shape({
-      artist: PropTypes.string.isRequired,
-      src: PropTypes.string.isRequired
-    }),
-    answers: PropTypes.arrayOf(PropTypes.shape({
-      picture: PropTypes.string.isRequired,
-      artist: PropTypes.string.isRequired
-    })).isRequired
-  }).isRequired,
-  onAnswer: PropTypes.func.isRequired
+  question: artistQuestionPropTypes,
+  onAnswer: func.isRequired
 };
 
 export default ArtistQuestionScreen;

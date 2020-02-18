@@ -1,5 +1,5 @@
 import React, {PureComponent} from 'react';
-import PropTypes from 'prop-types';
+import {number, arrayOf, object} from 'prop-types';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import WelcomeScreen from '../welcome-screen/welcome-screen';
 import ArtistQuestionScreen from '../artist-question-screen/artist-question-screen';
@@ -106,8 +106,8 @@ class App extends PureComponent {
 }
 
 App.propTypes = {
-  errorsCount: PropTypes.number.isRequired,
-  questions: PropTypes.arrayOf(PropTypes.object).isRequired
+  errorsCount: number.isRequired,
+  questions: arrayOf(object).isRequired
 };
 
 export default App;

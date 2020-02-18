@@ -1,7 +1,8 @@
 import React, {PureComponent} from 'react';
-import PropTypes from 'prop-types';
+import {func} from 'prop-types';
+import {genreQuestionPropTypes} from '../../types';
 import Header from '../header/header';
-import {PAUSE_CLASS, QuestionType} from '../../const';
+import {PAUSE_CLASS} from '../../const';
 
 class GenreQuestionScreen extends PureComponent {
   constructor(props) {
@@ -116,15 +117,8 @@ class GenreQuestionScreen extends PureComponent {
 }
 
 GenreQuestionScreen.propTypes = {
-  question: PropTypes.shape({
-    type: PropTypes.oneOf(Object.values(QuestionType)),
-    genre: PropTypes.string.isRequired,
-    answers: PropTypes.arrayOf(PropTypes.shape({
-      src: PropTypes.string.isRequired,
-      genre: PropTypes.string.isRequired
-    })).isRequired
-  }),
-  onAnswer: PropTypes.func.isRequired
+  question: genreQuestionPropTypes,
+  onAnswer: func.isRequired
 };
 
 export default GenreQuestionScreen;
