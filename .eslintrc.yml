@@ -14,6 +14,17 @@ parserOptions:
 
 plugins: ['react']
 
+rules:
+  react/sort-comp: [1, {
+    order: [
+      'lifecycle',
+      '/^_.+$/',
+      'everything-else',
+      'render',
+      'static-methods'
+    ]
+  }]
+
 settings:
   react:
     version: '16'

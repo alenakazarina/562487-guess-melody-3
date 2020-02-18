@@ -15,6 +15,14 @@ class App extends PureComponent {
     this._handleWelcomeButtomClick = this._handleWelcomeButtomClick.bind(this);
   }
 
+  componentDidUpdate() {
+    if (this.state.step >= this.props.questions.length) {
+      this.setState(() => ({
+        step: -1
+      }));
+    }
+  }
+
   _handleWelcomeButtomClick() {
     this.setState((state) => ({
       step: state.step + 1
@@ -60,14 +68,6 @@ class App extends PureComponent {
         );
       default:
         return null;
-    }
-  }
-
-  componentDidUpdate() {
-    if (this.state.step >= this.props.questions.length) {
-      this.setState(() => ({
-        step: -1
-      }));
     }
   }
 

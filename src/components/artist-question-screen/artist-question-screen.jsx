@@ -12,13 +12,6 @@ class ArtistQuestionScreen extends PureComponent {
     this._handlePlayButtonClick = this._handlePlayButtonClick.bind(this);
   }
 
-  _handlePlayButtonClick(evt) {
-    evt.target.classList.toggle(PAUSE_CLASS);
-    this.setState((state) => ({
-      isPlaying: !state.isPlaying
-    }));
-  }
-
   componentDidUpdate() {
     const {isPlaying} = this.state;
     const activeAudio = document.querySelector(`.game__screen audio`);
@@ -27,6 +20,13 @@ class ArtistQuestionScreen extends PureComponent {
     } else {
       activeAudio.pause();
     }
+  }
+
+  _handlePlayButtonClick(evt) {
+    evt.target.classList.toggle(PAUSE_CLASS);
+    this.setState((state) => ({
+      isPlaying: !state.isPlaying
+    }));
   }
 
   render() {

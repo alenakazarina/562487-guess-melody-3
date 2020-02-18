@@ -15,6 +15,22 @@ class GenreQuestionScreen extends PureComponent {
     this._handleUserAnswerChange = this._handleUserAnswerChange.bind(this);
   }
 
+  componentDidUpdate() {
+    const {trackId, isPlaying} = this.state;
+    const activeAudio = document.querySelectorAll(`.game__screen audio`)[trackId];
+
+    //  if updates from _handleUserAnswerChange
+    if (!activeAudio) {
+      return;
+    }
+    //  if updates after _handlePlayButtonClick
+    if (isPlaying) {
+      activeAudio.play();
+    } else {
+      activeAudio.pause();
+    }
+  }
+
   _handlePlayButtonClick(evt, id) {
     evt.target.classList.toggle(PAUSE_CLASS);
     const {trackId, isPlaying} = this.state;
@@ -47,22 +63,6 @@ class GenreQuestionScreen extends PureComponent {
     this.setState((state) => ({
       userAnswers: [...state.userAnswers.slice(0, index), userAnswer, ...state.userAnswers.slice(index + 1)]
     }));
-  }
-
-  componentDidUpdate() {
-    const {trackId, isPlaying} = this.state;
-    const activeAudio = document.querySelectorAll(`.game__screen audio`)[trackId];
-
-    //  if updates from _handleUserAnswerChange
-    if (!activeAudio) {
-      return;
-    }
-    //  if updates after _handlePlayButtonClick
-    if (isPlaying) {
-      activeAudio.play();
-    } else {
-      activeAudio.pause();
-    }
   }
 
   render() {
