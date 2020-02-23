@@ -356,6 +356,43 @@ th {
   padding: 0; }
 
 /*
+ * fonts
+ */
+
+ @font-face {
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Fira Sans Regular'),
+      local('FiraSans-Regular'),
+      url('../fonts/fira-sans-regular.woff2')
+      format('woff2');
+}
+
+@font-face {
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: local('Fira Sans Medium'),
+      local('FiraSans-Medium'),
+      url('../fonts/fira-sans-medium.woff2')
+      format('woff2');
+}
+
+@font-face {
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Fira Sans Bold'),
+      local('FiraSans-Bold'),
+      url('../fonts/fira-sans-bold.woff2')
+      format('woff2');
+}
+
+/*
  * Каркас сайта
  */
 
