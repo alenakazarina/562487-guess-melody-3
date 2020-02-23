@@ -15,7 +15,7 @@ parserOptions:
 plugins: ['react']
 
 rules:
-  react/sort-comp: [1, {
+  react/sort-comp: [2, {
     order: [
       'lifecycle',
       '/^_.+$/',
