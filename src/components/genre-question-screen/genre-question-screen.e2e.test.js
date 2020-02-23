@@ -36,6 +36,7 @@ it(`should call preventDefault on submit form`, () => {
       <GenreQuestionScreen
         question={questions[0]}
         onAnswer={onUserAnswer}
+        renderPlayer={()=>{}}
       />
   );
   const form = screen.find(`form.game__tracks`);
@@ -51,6 +52,7 @@ it(`should call onAnswer cb with question and checked answers as arguments`, () 
       <GenreQuestionScreen
         question={questions[0]}
         onAnswer={onUserAnswer}
+        renderPlayer={()=>{}}
       />
   );
   const input = screen.find(`input.game__input`).at(0);

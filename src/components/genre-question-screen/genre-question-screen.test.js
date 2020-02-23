@@ -9,6 +9,7 @@ describe(`GenreQuestionScreen`, () => {
         <GenreQuestionScreen
           question={questions[0]}
           onAnswer={()=>{}}
+          renderPlayer={()=>{}}
         />
     ).toJSON();
     expect(tree).toMatchSnapshot();

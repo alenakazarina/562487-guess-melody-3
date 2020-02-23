@@ -18,23 +18,10 @@ exports[`GenreQuestionScreen should render GenreQuestionScreen correctly 1`] = `
     <div
       className="track"
     >
-      <button
-        className="track__button track__button--play"
-        onClick={[Function]}
-        type="button"
-      />
-      <div
-        className="track__status"
-      >
-        <audio
-          src="https://res.cloudinary.com/df6cuiopc/video/upload/v1581414459/music/track-08.mp3"
-        />
-      </div>
       <div
         className="game__answer"
       >
         <input
-          checked={false}
           className="game__input visually-hidden"
           id="answer-0"
           name="answer"
@@ -53,23 +40,10 @@ exports[`GenreQuestionScreen should render GenreQuestionScreen correctly 1`] = `
     <div
       className="track"
     >
-      <button
-        className="track__button track__button--play"
-        onClick={[Function]}
-        type="button"
-      />
-      <div
-        className="track__status"
-      >
-        <audio
-          src="https://res.cloudinary.com/df6cuiopc/video/upload/v1581414459/music/track-07.mp3"
-        />
-      </div>
       <div
         className="game__answer"
       >
         <input
-          checked={false}
           className="game__input visually-hidden"
           id="answer-1"
           name="answer"
@@ -88,23 +62,10 @@ exports[`GenreQuestionScreen should render GenreQuestionScreen correctly 1`] = `
     <div
       className="track"
     >
-      <button
-        className="track__button track__button--play"
-        onClick={[Function]}
-        type="button"
-      />
-      <div
-        className="track__status"
-      >
-        <audio
-          src="https://res.cloudinary.com/df6cuiopc/video/upload/v1581414459/music/track-05.mp3"
-        />
-      </div>
       <div
         className="game__answer"
       >
         <input
-          checked={false}
           className="game__input visually-hidden"
           id="answer-2"
           name="answer"
@@ -123,23 +84,10 @@ exports[`GenreQuestionScreen should render GenreQuestionScreen correctly 1`] = `
     <div
       className="track"
     >
-      <button
-        className="track__button track__button--play"
-        onClick={[Function]}
-        type="button"
-      />
-      <div
-        className="track__status"
-      >
-        <audio
-          src="https://res.cloudinary.com/df6cuiopc/video/upload/v1581414459/music/track-06.mp3"
-        />
-      </div>
       <div
         className="game__answer"
       >
         <input
-          checked={false}
           className="game__input visually-hidden"
           id="answer-3"
           name="answer"

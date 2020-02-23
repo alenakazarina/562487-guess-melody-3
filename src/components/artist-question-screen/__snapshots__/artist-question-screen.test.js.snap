@@ -14,20 +14,7 @@ exports[`ArtistQuestionScreen should render ArtistQuestionScreen correctly 1`] =
   >
     <div
       className="track"
-    >
-      <button
-        className="track__button track__button--play"
-        onClick={[Function]}
-        type="button"
-      />
-      <div
-        className="track__status"
-      >
-        <audio
-          src="https://res.cloudinary.com/df6cuiopc/video/upload/v1581414089/music/track-04.mp3"
-        />
-      </div>
-    </div>
+    />
   </div>
   <form
     className="game__artist"

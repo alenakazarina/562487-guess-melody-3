@@ -39,6 +39,7 @@ it(`should call onUserAnswer callback on answer input change`, () => {
       <ArtistQuestionScreen
         question={questions[0]}
         onAnswer={onUserAnswer}
+        renderPlayer={()=>{}}
       />
   );
   screen.find(`input.artist__input`).at(1).simulate(`change`, mockEvent);

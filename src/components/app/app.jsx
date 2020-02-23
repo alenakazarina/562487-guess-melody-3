@@ -6,6 +6,10 @@ import ArtistQuestionScreen from '../artist-question-screen/artist-question-scre
 import GenreQuestionScreen from '../genre-question-screen/genre-question-screen';
 import GameScreen from '../game-screen/game-screen';
 import {QuestionType} from '../../mocks/questions';
+import withAudioPlayer from '../../hocs/with-audio-player/with-audio-player';
+
+const WrappedGenreQuestionScreen = withAudioPlayer(GenreQuestionScreen);
+const WrappedArtistQuestionScreen = withAudioPlayer(ArtistQuestionScreen);
 
 class App extends PureComponent {
   constructor(props) {
@@ -48,7 +52,7 @@ class App extends PureComponent {
       case QuestionType.GENRE:
         return (
           <GameScreen type={QuestionType.GENRE}>
-            <GenreQuestionScreen
+            <WrappedGenreQuestionScreen
               question={question}
               onAnswer={() => {
                 this.setState((state) => ({
@@ -61,7 +65,7 @@ class App extends PureComponent {
       case QuestionType.ARTIST:
         return (
           <GameScreen type={QuestionType.ARTIST}>
-            <ArtistQuestionScreen
+            <WrappedArtistQuestionScreen
               question={question}
               onAnswer={() => {
                 this.setState((state) => ({
@@ -86,7 +90,7 @@ class App extends PureComponent {
           </Route>
           <Route exact path="/dev-genre">
             <GameScreen type={QuestionType.GENRE}>
-              <GenreQuestionScreen
+              <WrappedGenreQuestionScreen
                 question={questions[0]}
                 onAnswer={() => {
                   this.setState(() => ({
@@ -98,7 +102,7 @@ class App extends PureComponent {
           </Route>
           <Route exact path="/dev-artist">
             <GameScreen type={QuestionType.ARTIST}>
-              <ArtistQuestionScreen
+              <WrappedArtistQuestionScreen
                 question={questions[1]}
                 onAnswer={() => {
                   this.setState(() => ({
